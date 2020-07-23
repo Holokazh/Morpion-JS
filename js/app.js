@@ -1,17 +1,74 @@
 $(function () {
 
-    var player_one = 1
-    var player_two = 2
-    var tour = 1
+    var playerActive = ""
+    const player_one = "X"
+    const player_two = "O"
+    carré = document.querySelectorAll(".case")
+    tour = 0
+    playerActive = player_one
 
-    $(".case").click(function(){
-        if (player_one == tour) {
-            $(this).append("X")
-            return tour = 2;
+
+    // SWITCH ENTRE JOUEUR 1 ET JOUEUR 2
+    $(".case").one("click", function () {
+        if (playerActive == player_one) {
+            $(this).append(player_one)
+            return console.log(playerActive = player_two)
         }
-        else (player_two == tour)
-            $(this).append("O")
-            return tour = 1;
+        else (playerActive == player_two)
+        $(this).append(player_two)
+        return console.log(playerActive = player_one)
     });
+
+    // MATCH NUL
+    $(".case").one("click", function () {
+        tour++
+        console.log(tour)
+        if (tour > 8) {
+            return alert("MATCH NUL")
+        }
+        else { }
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 })
