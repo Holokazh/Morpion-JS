@@ -24,14 +24,14 @@ section {
 }
 
 /*** PLAYERS ***/
-#player1 {
+.divPlayer1 {
     border: 1px solid black;
     width: 15rem;
     height: 30em;
     margin-right: 1.2em;
 }
 
-#player2 {
+.divPlayer2 {
     border: 1px solid black;
     width: 15em;
     height: 30em;
