@@ -3,10 +3,12 @@
 * {
     box-sizing: border-box;
     font-family: Verdana, sans-serif;
+    color: #fff;
 }
 
 body {
     margin: 0;
+    background-color: #121212;
 }
 
 /***** HEADER *****/
@@ -25,14 +27,16 @@ section {
 
 /*** PLAYERS ***/
 .divPlayer1 {
-    border: 1px solid black;
+    border: 1px solid #fff;
+    background-color: #222222;
     width: 15rem;
     height: 30em;
     margin-right: 1.2em;
 }
 
 .divPlayer2 {
-    border: 1px solid black;
+    border: 1px solid #fff;
+    background-color: #222222;
     width: 15em;
     height: 30em;
     margin-left: 1.2em;
@@ -48,10 +52,11 @@ h3 {
     height: 25em;
     display: flex;
     flex-wrap: wrap;
+    background-color: #333333;
 }
 
 .case {
-    border: 1px solid #000000;
+    border: 1px solid #fff;
     width: 33.33333333%;
     height: 33.33333333%;
     display: flex;
@@ -59,3 +64,14 @@ h3 {
     justify-content: center;
     cursor: pointer;
 }
+
+/* table {
+    width: 25em;
+    height: 25em;
+    background-color: #333333;
+    border-collapse: collapse;
+}
+th {
+    border: 1px solid #fff;
+    cursor: pointer;
+} */
