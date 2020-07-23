@@ -3,7 +3,6 @@ $(function () {
     var playerActive = ""
     const player_one = "X"
     const player_two = "O"
-    carré = document.querySelectorAll(".case")
     tour = 0
     playerActive = player_one
 
@@ -23,7 +22,7 @@ $(function () {
     $(".case").one("click", function () {
         tour++
         console.log(tour)
-        if (tour > 8) {
+        if (tour == 9) {
             return alert("MATCH NUL")
         }
         else { }
