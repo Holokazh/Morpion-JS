@@ -6,8 +6,7 @@ $(function () {
     playerActive = player_one
     tour = 0
 
-
-    // SWITCH ENTRE JOUEUR 1 ET JOUEUR 2
+    ///// SWITCH ENTRE JOUEUR 1 ET JOUEUR 2 /////
     $(".case").on("click", function () {
         cell = $(this).html()
         if (cell != "") {
@@ -26,9 +25,8 @@ $(function () {
         }
     });
 
-
-    // CONDITION WINNING & MATCH NUL
-    $(".case").click(function () {
+    ///// WINING AND MATCH NUL /////
+    function win(p1, p2, compteur) {
         var case1 = $("#1").html()
         var case2 = $("#2").html()
         var case3 = $("#3").html()
@@ -38,38 +36,42 @@ $(function () {
         var case7 = $("#7").html()
         var case8 = $("#8").html()
         var case9 = $("#9").html()
-        if (tour == 9) {
-            return console.log("MATCH NUL")
-        }
-        else if (tour >= 5) {
-            if ((case1 == case2 && case2 == case3 && case1 == player_one) ||
-                (case4 == case5 && case5 == case6 && case4 == player_one) ||
-                (case7 == case8 && case8 == case9 && case7 == player_one) ||
-                (case1 == case4 && case4 == case7 && case1 == player_one) ||
-                (case2 == case5 && case5 == case8 && case2 == player_one) ||
-                (case3 == case6 && case6 == case9 && case3 == player_one) ||
-                (case1 == case5 && case5 == case9 && case1 == player_one) ||
-                (case7 == case5 && case5 == case3 && case7 == player_one)) {
-                return console.log("JOUEUR 1 GAGNANT")
+        if (compteur >= 5) {
+            if ((case1 == case2 && case2 == case3 && case1 == p1) ||
+                (case4 == case5 && case5 == case6 && case4 == p1) ||
+                (case7 == case8 && case8 == case9 && case7 == p1) ||
+                (case1 == case4 && case4 == case7 && case1 == p1) ||
+                (case2 == case5 && case5 == case8 && case2 == p1) ||
+                (case3 == case6 && case6 == case9 && case3 == p1) ||
+                (case1 == case5 && case5 == case9 && case1 == p1) ||
+                (case7 == case5 && case5 == case3 && case7 == p1)) {
+                return console.log("JOUEUR 1 GAGNANT");
             }
-            else if ((case1 == case2 && case2 == case3 && case1 == player_two) ||
-                (case4 == case5 && case5 == case6 && case4 == player_two) ||
-                (case7 == case8 && case8 == case9 && case7 == player_two) ||
-                (case1 == case4 && case4 == case7 && case1 == player_two) ||
-                (case2 == case5 && case5 == case8 && case2 == player_two) ||
-                (case3 == case6 && case6 == case9 && case3 == player_two) ||
-                (case1 == case5 && case5 == case9 && case1 == player_two) ||
-                (case7 == case5 && case5 == case3 && case7 == player_two)) {
-                return console.log("JOUEUR 2 GAGNANT")
+            else if ((case1 == case2 && case2 == case3 && case1 == p2) ||
+                (case4 == case5 && case5 == case6 && case4 == p2) ||
+                (case7 == case8 && case8 == case9 && case7 == p2) ||
+                (case1 == case4 && case4 == case7 && case1 == p2) ||
+                (case2 == case5 && case5 == case8 && case2 == p2) ||
+                (case3 == case6 && case6 == case9 && case3 == p2) ||
+                (case1 == case5 && case5 == case9 && case1 == p2) ||
+                (case7 == case5 && case5 == case3 && case7 == p2)) {
+                return console.log("JOUEUR 2 GAGNANT");
+            }
+            else if (compteur == 9) {
+                return console.log("MATCH NUL");
             }
             else { }
         }
         else { }
+    }
+
+    $(".case").click(function () {
+        return win(player_one, player_two, tour)
     });
 
 
-    // RESET
-    $("#reset").click(function () {
+    ///// RESET /////
+    function clear() {
         case1 = $("#1").html("")
         case2 = $("#2").html("")
         case3 = $("#3").html("")
@@ -81,10 +83,11 @@ $(function () {
         case9 = $("#9").html("")
         tour = 0
         playerActive = player_one
+    }
+
+    $("#reset").click(function () {
+        return clear()
     });
-
-
-
 
 
 
