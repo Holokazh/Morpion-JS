@@ -75,6 +75,10 @@ h3 {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    transition: 0.2s all ease;
+}
+.case:hover {
+    background-color: #555555;
 }
 
 /*** RESET ***/
@@ -90,10 +94,12 @@ h3 {
     border-radius: 2px;
     text-decoration: none;
     padding: 0.2em 0.5em;
+    transition: 0.2s all ease;
 }
 
 #reset:hover {
-    background-color: #333333;
+    background-color: #fff;
+    color: rgb(0, 50, 250);
 }
 
 /***** FOOTER *****/
