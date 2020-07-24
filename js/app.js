@@ -5,6 +5,10 @@ $(function () {
     const player_two = "O"
     playerActive = player_one
     tour = 0
+    tourPlayerOne = document.querySelector(".p1")
+    tourPlayerTwo = document.querySelector(".p2")
+    tourPlayerOne.classList.toggle('active')
+
 
     ///// SWITCH ENTRE JOUEUR 1 ET JOUEUR 2 /////
     $(".case").on("click", function () {
@@ -16,16 +20,20 @@ $(function () {
             if (playerActive == player_one) {
                 $(this).append(player_one)
                 tour++
-                return console.log(playerActive = player_two, tour)
+                return console.log(playerActive = player_two, tour),
+                    tourPlayerTwo.classList.toggle("active"),
+                    $(".p1.active").removeClass("active")
             }
             else (playerActive == player_two)
             $(this).append(player_two)
             tour++
-            return console.log(playerActive = player_one, tour)
+            return console.log(playerActive = player_one, tour),
+                tourPlayerOne.classList.toggle("active"),
+                $(".p2.active").removeClass("active")
         }
     });
 
-    ///// WINING AND MATCH NUL /////
+    ///// WINING AND MATCH NUL /////ddddddq
     function win(p1, p2, compteur) {
         var case1 = $("#1").html()
         var case2 = $("#2").html()
@@ -45,7 +53,7 @@ $(function () {
                 (case3 == case6 && case6 == case9 && case3 == p1) ||
                 (case1 == case5 && case5 == case9 && case1 == p1) ||
                 (case7 == case5 && case5 == case3 && case7 == p1)) {
-                return console.log("JOUEUR 1 GAGNANT");
+                return alert("JOUEUR 1 GAGNANT" + clear())
             }
             else if ((case1 == case2 && case2 == case3 && case1 == p2) ||
                 (case4 == case5 && case5 == case6 && case4 == p2) ||
@@ -55,10 +63,10 @@ $(function () {
                 (case3 == case6 && case6 == case9 && case3 == p2) ||
                 (case1 == case5 && case5 == case9 && case1 == p2) ||
                 (case7 == case5 && case5 == case3 && case7 == p2)) {
-                return console.log("JOUEUR 2 GAGNANT");
+                return alert("JOUEUR 2 GAGNANT" + clear())
             }
             else if (compteur == 9) {
-                return console.log("MATCH NUL");
+                return alert("MATCH NUL" + clear())
             }
             else { }
         }
@@ -83,6 +91,8 @@ $(function () {
         case9 = $("#9").html("")
         tour = 0
         playerActive = player_one
+        $(".p1").addClass("active")
+        $(".p2.active").removeClass("active")
     }
 
     $("#reset").click(function () {
