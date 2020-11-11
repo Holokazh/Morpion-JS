@@ -33,8 +33,13 @@ $(function () {
         }
     });
 
-    ///// WINING AND MATCH NUL /////ddddddq
+    ///// WINING AND MATCH NUL /////
     function win(p1, p2, compteur) {
+        var winner = document.querySelector(".divWin")
+        var titleWinner = document.querySelector(".titleWin")
+        const p1win = "Le joueur 1 remporte la partie"
+        const p2win = "Le joueur 2 remporte la partie"
+
         var case1 = $("#1").html()
         var case2 = $("#2").html()
         var case3 = $("#3").html()
@@ -53,7 +58,8 @@ $(function () {
                 (case3 == case6 && case6 == case9 && case3 == p1) ||
                 (case1 == case5 && case5 == case9 && case1 == p1) ||
                 (case7 == case5 && case5 == case3 && case7 == p1)) {
-                return alert("JOUEUR 1 GAGNANT" + clear())
+                return winner.classList.add("active" + clear()),
+                titleWinner.append(p1win)
             }
             else if ((case1 == case2 && case2 == case3 && case1 == p2) ||
                 (case4 == case5 && case5 == case6 && case4 == p2) ||
@@ -63,10 +69,12 @@ $(function () {
                 (case3 == case6 && case6 == case9 && case3 == p2) ||
                 (case1 == case5 && case5 == case9 && case1 == p2) ||
                 (case7 == case5 && case5 == case3 && case7 == p2)) {
-                return alert("JOUEUR 2 GAGNANT" + clear())
+                return winner.classList.add("active" + clear()),
+                titleWinner.append(p2win)
             }
             else if (compteur == 9) {
-                return alert("MATCH NUL" + clear())
+                return winner.classList.add("active" + clear()),
+                titleWinner.append("MATCH NUL")
             }
             else { }
         }
@@ -93,9 +101,11 @@ $(function () {
         playerActive = player_one
         $(".p1").addClass("active")
         $(".p2.active").removeClass("active")
+        $(".divWin.activeundefined").removeClass("activeundefined")
+        titleWinner = $(".titleWin").html("")
     }
 
-    $("#reset").click(function () {
+    $(".reset").click(function () {
         return clear()
     });
 
